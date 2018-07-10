@@ -38,7 +38,7 @@ class App extends Component {
       labels: ["Before Course", "After Course"],
       datasets: [{
         label: '% Knowledge',
-        data: [19, 19],
+        data: [40, 90],
         backgroundColor: [
           'rgba(255, 99, 132, 0.2)',
           'rgba(54, 162, 235, 0.2)'
@@ -76,7 +76,10 @@ class App extends Component {
           width={500}
           height={500}
           options={{
-            maintainAspectRatio: false
+            maintainAspectRatio: false,
+            scales: {
+              "yAxes": [{"ticks": { "beginAtZero": true, "max": 100}}]
+            }
           }}
         />
         </p>
