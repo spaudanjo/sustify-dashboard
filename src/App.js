@@ -4,6 +4,7 @@ import './App.css';
 
 import {Doughnut} from 'react-chartjs-2';
 import {Bar} from 'react-chartjs-2';
+import {Line} from 'react-chartjs-2';
 
 class App extends Component {
 
@@ -50,7 +51,26 @@ class App extends Component {
         ],
         borderWidth: 1
       }]
-    }
+    };
+
+    this.attendanceData = {
+      labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"],
+      datasets: [{
+        label: "Attendance %",
+        backgroundColor: "rgba(21, 147, 105, 0.8)",
+        fill: true,
+        data: [100, 80, 75, 80, 75, 40, 85, 90, 92, 95, 90],
+        lineTension: 0
+      },
+      {
+        label: "Threashold",
+        borderColor: "rgba(255, 102, 102, 0.8)",
+        data: [90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90],
+        radius: 0,
+        fill: false,
+        lineTension: 0
+      }]
+    };
   }
 
   render() {
@@ -67,9 +87,8 @@ class App extends Component {
         <br />
         <br />
         <br />
-        <p><strong>
-          Result: Knowledge before and after course
-        </strong></p>
+        <section class="dashboard-chart">
+        <h2 class="dashboard-chart-title">Result: Knowledge before and after course</h2>
         <p>
         <Bar
           data={this.barData}
@@ -83,6 +102,27 @@ class App extends Component {
           }}
         />
         </p>
+        </section>
+        <section class="dashboard-chart">
+        <h2 class="dashboard-chart-title">Overall Attendance</h2>
+        <p>
+        <Line
+          data={this.attendanceData}
+          width={500}
+          height={500}
+          options={{
+            maintainAspectRatio: false,
+            legend: {
+              display: false
+            },
+            scales: {
+              "yAxes": [{"ticks": { "beginAtZero": true, "max": 100}}],
+              "xAxes": [{scaleLabel:{display:true,labelString:'Week'}}]
+            }
+          }}
+        />
+        </p>
+        </section>
       </div>
     );
   }

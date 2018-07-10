@@ -1,5 +1,7 @@
 .App {
-  text-align: center;
+    text-align: center;
+    background-color: rgba(0, 93, 83, 1);
+    padding-bottom: 2em;
 }
 
 .App-logo {
@@ -25,4 +27,16 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.dashboard-chart {
+    background-color: white;
+    padding: 1em;
+    border-radius: 1em;
+    margin-bottom: 2em;
+}
+
+.dashboard-chart-title {
+    color: rgba(0, 93, 83, 1);
+    font-size: 1.5em;
 }
