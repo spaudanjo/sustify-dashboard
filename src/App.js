@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 
 import {Doughnut} from 'react-chartjs-2';
+import {Bar} from 'react-chartjs-2';
 
 class App extends Component {
 
@@ -44,6 +45,17 @@ class App extends Component {
         <p className="App-intro">
           <Doughnut data={this.chartData} />
           To get started, edit <code>src/App.js</code> and save to reload.
+        </p>
+
+        <p>
+        <Bar
+          data={this.chartData}
+          width={100}
+          height={50}
+          options={{
+            maintainAspectRatio: false
+          }}
+        />
         </p>
       </div>
     );
