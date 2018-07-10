@@ -51,22 +51,51 @@ class App extends Component {
         borderWidth: 1
       }]
     }
+
+    this.doughnutRight = {
+      labels: ["Workers", "Supervisors", "Managers"],
+      datasets: [{
+        label: '% Workers',
+        data: [40, 25, 10],
+        backgroundColor: [
+          'rgba(116, 192, 153)', // Mint
+          'rgba(255, 102, 102)',
+          'rgba(0, 60, 65)' // dark blue
+        ],
+        borderColor: [
+          'rgba(116, 192, 153)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(0, 60, 65)'
+        ],
+        borderWidth: 0
+      }]
+    }
+
+    this.doughnutLeft = {
+      labels: ["Enrolled in this course", "Not enrolled"],
+      datasets: [{
+        label: '% Enrolled',
+        data: [60, 40],
+        backgroundColor: [
+          'rgba(116, 192, 153)', // Mint
+          'rgba(0, 60, 65)' // dark blue
+        ],
+        borderColor: [
+          'rgba(116, 192, 153)', // Mint
+          'rgba(0, 60, 65)' // dark blue
+        ],
+        borderWidth: 1
+      }]
+    }
   }
 
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+        <header>
+          <p>View all cards</p>
         </header>
-        <p className="App-intro">
-          <Doughnut data={this.chartData} />
-        </p>
 
-        <br />
-        <br />
-        <br />
         <p><strong>
           Result: Knowledge before and after course
         </strong></p>
@@ -83,6 +112,29 @@ class App extends Component {
           }}
         />
         </p>
+
+        <br />
+        <br />
+        <br />
+        <div className="wrapper">
+          <p className="doughnut-1">
+          <p><strong>User demographics: Role</strong></p>
+            <Doughnut
+              data={this.doughnutRight}
+              width={500}
+              height={500}
+            />
+          </p>
+
+          <p className="doughnut-2">
+          <p><strong>Employees enrolled vs not enrolled</strong></p>
+            <Doughnut
+              data={this.doughnutLeft} 
+              width={500}
+              height={500}
+            />
+          </p>
+        </div>
       </div>
     );
   }
